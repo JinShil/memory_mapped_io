@@ -14,7 +14,7 @@ Goals
 
 * Reduce code size and increase performance by utilizing the D programming language's Compile-Time Function Execution (CTFE) feature reducing register access to as few instructions as possible.
 * Provide a strong correlation between code and datasheet to make authoring code from the datasheet and verifying code against the datasheet convenient and less error-prone.
-* Provide convenient access to registers and bitfileds with object-oriented syntax.
+* Provide convenient and efficient access to registers and bitfileds with object-oriented syntax.
 * Together with tooling, such as code completion (see [DCD](https://github.com/Hackerpilot/DCD)), provide context-sensitive information to the programmer to reduce the frequency with which he/she has to refer to the datasheet.
 
 Features
