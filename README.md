@@ -1,4 +1,4 @@
-memory_mapped_io
+﻿memory_mapped_io
 ================
 
 A memory-mapped IO library written in the D programming language.
@@ -17,6 +17,15 @@ Goals
 * Provide convenient access to registers and bitfileds with object-oriented syntax.
 * Together with tooling, such as code completion (see [DCD](https://github.com/Hackerpilot/DCD)), provide context-sensitive information to the programmer to reduce the frequency with which he/she has to refer to the datasheet.
 
+Features
+--------
+* Enforces word, half-word, and byte access policy at compile time.  See Access.
+* Enforces mutability constraints such as read, write, readwrite, etc... at compile time. See Mutability.
+* Optimizes byte-aligned and half-word aligned bitfields generating atomic read/write operations resulting in smaller code size and faster performance.
+* It optimizes bitfieds of a single bit, via bit-banding, generating atomic read/write operations resulting in smaller code size and faster performance.
+* It can combine multiple bitfield accesses within a single register into one read-modify-write operation resulting in smaller code size and faster performance.
+* It enables intuitive and obvious register modeling that directly cross-references back to register specifications.
+
 Licensing
 ---------
 
@@ -26,3 +35,10 @@ Contributing
 ------------
 
 Your critique, suggestions, pull requests, issue reports, and other participation is most welcome.  I can be contacted vir IRC at [FreeNode](http://freenode.net)'s #d channel (irc://irc.freenode.net/d)
+
+TODO
+---------
+
+* Add complete DDoc comments to all interfaces
+* Add a real-world example
+* Add example showing importance of tooling (code completion)
