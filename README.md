@@ -22,9 +22,9 @@ Features
 * Enforces word, half-word, and byte access policy at compile time.  See `Access` enum.
 * Enforces mutability constraints such as read, write, readwrite, etc... at compile time. See `Mutability` enum.
 * Optimizes byte-aligned and half-word aligned bitfields generating atomic read/write operations resulting in smaller code size and faster performance.
-* It optimizes bitfieds of a single bit, via bit-banding, generating atomic read/write operations resulting in smaller code size and faster performance.
-* It can combine multiple bitfield accesses within a single register into one read-modify-write operation resulting in smaller code size and faster performance.
-* It enables intuitive and obvious register modeling that directly cross-references back to register specifications.
+* Optimizes bitfieds of a single bit, via bit-banding, generating atomic read/write operations resulting in smaller code size and faster performance.
+* Can combine multiple bitfield accesses within a single register into one read-modify-write operation resulting in smaller code size and faster performance.
+* Enables intuitive and obvious register modeling that directly cross-references back to register specifications in the datasheet.
 
 Licensing
 ---------
