@@ -7,7 +7,7 @@ This library was created to support other concurrent efforts to bring the D prog
 
 The design of this library originally influenced by a paper written by Ken Smith titled "[C++ Hardware Register Access Redux](http://yogiken.files.wordpress.com/2010/02/c-register-access.pdf)". It was then modified to take advantage of some unique features of the D programming language. 
 
-To date, this library has only been used with the [https://github.com/D-Programming-GDC/GDC](GDC compiler).
+To date, this library has only been used with the [GDC compiler](https://github.com/D-Programming-GDC/GDC).
 
 Goals
 ---------
