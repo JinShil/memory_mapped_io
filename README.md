@@ -12,15 +12,15 @@ To date, this library has only been used with the [GDC compiler](https://github.
 Goals
 ---------
 
-* Reduces code size and increase performance by utilizing the D programming language's Compile-Time Function Execution (CTFE) feature reducing register access to as few instructions as possible.
+* Reduce code size and increase performance by utilizing the D programming language's Compile-Time Function Execution (CTFE) feature reducing register access to as few instructions as possible.
 * Provide a strong correlation between code and datasheet to make authoring code from the datasheet and verifying code against the datasheet convenient and less error-prone.
 * Provide convenient access to registers and bitfileds with object-oriented syntax.
 * Together with tooling, such as code completion (see [DCD](https://github.com/Hackerpilot/DCD)), provide context-sensitive information to the programmer to reduce the frequency with which he/she has to refer to the datasheet.
 
 Features
 --------
-* Enforces word, half-word, and byte access policy at compile time.  See Access enum.
-* Enforces mutability constraints such as read, write, readwrite, etc... at compile time. See Mutability enum.
+* Enforces word, half-word, and byte access policy at compile time.  See `Access` enum.
+* Enforces mutability constraints such as read, write, readwrite, etc... at compile time. See `Mutability` enum.
 * Optimizes byte-aligned and half-word aligned bitfields generating atomic read/write operations resulting in smaller code size and faster performance.
 * It optimizes bitfieds of a single bit, via bit-banding, generating atomic read/write operations resulting in smaller code size and faster performance.
 * It can combine multiple bitfield accesses within a single register into one read-modify-write operation resulting in smaller code size and faster performance.
