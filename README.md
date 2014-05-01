@@ -38,7 +38,6 @@ Your critique, suggestions, pull requests, issue reports, and other participatio
 
 ToDo
 ---------
-
 * Add complete DDoc comments to all interfaces
 * Add a real-world example
 * Add example showing importance of tooling (code completion)
