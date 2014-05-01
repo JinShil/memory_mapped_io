@@ -1,6 +1,5 @@
 ﻿memory_mapped_io
 ================
-
 A memory-mapped IO library written in the D programming language.
 
 This library was created to support other concurrent efforts to bring the D programming language to ARM Cortex-M microcontrollers.  It is currently quite specific to the STM32 ARM Cortex-M4 microcontroller, but it would be nice if it could be made more general purpose.  
@@ -11,7 +10,6 @@ To date, this library has only been used with the [GDC compiler](https://github.
 
 Goals
 ---------
-
 * Reduce code size and increase performance by utilizing the D programming language's Compile-Time Function Execution (CTFE) feature reducing register access to as few instructions as possible.
 * Provide a strong correlation between code and datasheet to make authoring code from the datasheet and verifying code against the datasheet convenient and less error-prone.
 * Provide convenient and efficient access to registers and bitfileds with object-oriented syntax.
