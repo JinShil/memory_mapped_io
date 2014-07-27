@@ -1,5 +1,3 @@
-﻿memory_mapped_io
-================
 A memory-mapped IO library written in the D programming language.
 
 This library was created to support other concurrent efforts to bring the D programming language to ARM Cortex-M microcontrollers.  It is currently quite specific to the STM32 ARM Cortex-M4 microcontroller, but it would be nice if it could be made more general purpose.  
@@ -30,7 +28,7 @@ See the LICENSE file for licensing information.
 
 Contributing
 ------------
-Your critique, suggestions, pull requests, issue reports, and other participation is most welcome.  I can be contacted vir IRC at [FreeNode](http://freenode.net)'s #d channel (irc://irc.freenode.net/d)
+Your questions, critique, suggestions, pull requests, issue reports, and other participation is most welcome.  I can be contacted [here](https://www.sites.google.com/site/contactmikewebform/).
 
 ToDo
 ---------
