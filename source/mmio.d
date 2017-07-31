@@ -549,12 +549,8 @@ mixin template BitFieldImplementation(BitIndex bitIndex0, BitIndex bitIndex1, Mu
 /***********************************************************************
  For modeling a peripheral register bank
 */
-abstract class Peripheral(Bus, Address peripheralOffset)
-{
-    // this alias is used by some of the child mixins
-    // May be able to use __traits(parent) in children if https://issues.dlang.org/show_bug.cgi?id=12496 is ever fixed.
-    private static immutable Address peripheralAddress = Bus.address + peripheralOffset;
-    
+abstract class Peripheral(Address peripheralAddress)
+{    
     /***********************************************************************
         Gets this peripheral's address as specified in the datasheet
     */
