@@ -554,7 +554,7 @@ abstract class Peripheral(Address peripheralAddress)
     /***********************************************************************
         Gets this peripheral's address as specified in the datasheet
     */
-    static immutable auto address = Bus.address + peripheralOffset;
+    static immutable auto address = peripheralAddress;
     
     /***********************************************************************
       A register for this peripheral
