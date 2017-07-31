@@ -1,4 +1,4 @@
-A memory-mapped IO library written in the D programming language.
+# A memory-mapped IO library written in the D programming language.
 
 This library was created to support other concurrent efforts to bring the D programming language to ARM Cortex-M microcontrollers.  It is currently quite specific to the STM32 ARM Cortex-M4 microcontroller, but it would be nice if it could be made more general purpose.  
 
@@ -26,12 +26,3 @@ Licensing
 ---------
 See the LICENSE file for licensing information.
 
-Contributing
-------------
-Your questions, critique, suggestions, pull requests, issue reports, and other participation is most welcome.  I can be contacted [here](https://www.sites.google.com/site/contactmikewebform/).
-
-ToDo
----------
-* Add complete DDoc comments to all interfaces
-* Add a real-world example
-* Add example showing importance of tooling (code completion)
