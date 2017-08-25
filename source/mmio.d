@@ -1,4 +1,4 @@
-﻿// Copyright © 2014 Michael V. Franklin
+﻿// Copyright © 2017 Michael V. Franklin
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -68,7 +68,7 @@ final abstract class MyPeripheral : Peripheral!(0x2000_1000)
 }
  --------------------
 */
-module stm32f42.mmio;
+module mmio;
 
 import gcc.attribute;
 
@@ -500,6 +500,10 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
             }
         }
     }
+
+    // So we don't need to constantly type ".value" every time we want
+    // to read/write a bitfield
+    static alias value this;
 }
 
 /***********************************************************************
