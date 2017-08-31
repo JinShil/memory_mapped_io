@@ -326,7 +326,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
     /***********************************************************************
       Whether or not this bitfield is aligned to an even multiple of bytes
     */
-    private static @property Alignment alignment()
+    private static Alignment alignment() @property 
     {
         // If half-word aligned
         static if (((mostSignificantBitIndex + 1) % 16) == 0 && (leastSignificantBitIndex % 16) == 0)
@@ -365,7 +365,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
     // of this register is aliased to a bit-banded region
     static if(isBitBandable)
     {
-        private static @property Address bitBandAddress() pure
+        private static Address bitBandAddress() @property pure
         {
             static if (address >= PeripheralRegionStart && address <= PeripheralRegionEnd)
             {
@@ -403,7 +403,7 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
         /***********************************************************************
             Get this BitField's value
         */
-        @inline static @property ValueType value()
+        @inline static ValueType value() @property 
         {
             // If only a single bit, use bit banding
             static if (numberOfBits == 1 && isBitBandable)
@@ -474,7 +474,7 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
         /***********************************************************************
             Set this BitField's value
         */
-        @inline static @property void value(ValueType value_)
+        @inline static void value(ValueType value_) @property
         {             
             // If only a single bit, use bit banding
             static if (numberOfBits == 1 && isBitBandable)
@@ -588,7 +588,7 @@ abstract class Peripheral(Address peripheralAddress)
           Gets all bits in the register as a single value.  It's only exposed
           privately to prevent circumventing the access mutability.
         */
-        private static @property auto value()
+        private static auto value() @property
         {
             return volatileLoad(cast(Word*)address);
         }
@@ -597,7 +597,7 @@ abstract class Peripheral(Address peripheralAddress)
           Sets all bits in the register as a single value.  It's only exposed
           privately to prevent circumventing the access mutability.
         */
-        private static @property void value(Word value)
+        private static void value(Word value) @property
         {
             volatileStore(cast(Word*)address, value);
         }
