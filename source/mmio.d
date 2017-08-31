@@ -237,7 +237,7 @@ private enum Alignment
     Whether or not the mutability policy allows for reading the bit/
     bitfield's value
 */
-static auto canRead(Mutability m) @safe pure
+static auto canRead(immutable Mutability m) @safe pure
 {
     return m == Mutability.r     || m == Mutability.rw   
         || m == Mutability.rt_w  || m == Mutability.rs 
@@ -249,7 +249,7 @@ static auto canRead(Mutability m) @safe pure
     Whether or not the mutability policy allows for writing the bit/
     bitfield's value
 */
-static auto canWrite(Mutability m) @safe pure
+static auto canWrite(immutable Mutability m) @safe pure
 {
     return m == Mutability.w     || m == Mutability.rw 
         || m == Mutability.rc_w0 || m == Mutability.rc_w1
@@ -260,7 +260,7 @@ static auto canWrite(Mutability m) @safe pure
     Whether or not the mutability policy allows for only setting or
     clearing a bit
 */
-static auto canOnlySetOrClear(Mutability m) @safe pure
+static auto canOnlySetOrClear(immutable Mutability m) @safe pure
 {
     return m == Mutability.rc_w0 || m == Mutability.rc_w1 
         || m == Mutability.rs;
@@ -269,7 +269,7 @@ static auto canOnlySetOrClear(Mutability m) @safe pure
  /***********************************************************************
     Whether or not the mutability policy applies only to single bits
 */
-static auto isForBitsOnly(Mutability m) @safe pure
+static auto isForBitsOnly(immutable Mutability m) @safe pure
 {
     return m == Mutability.rc_w0 || m == Mutability.rc_w1 
         || m == Mutability.rs    || m == Mutability.rc_r
@@ -301,7 +301,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
       
       Returns: true if the bitIndex is valid, false if not
     */
-    private static auto isValidBitIndex(BitIndex bitIndex) @safe pure
+    private static auto isValidBitIndex(immutable BitIndex bitIndex) @safe pure
     {
         return bitIndex >= 0 && bitIndex < (Word.sizeof * 8);
     }
@@ -318,7 +318,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
       Takes a value and moves its bits to align with this bitfields position
       in the register.
     */
-    private static Word maskValue(T)(T value) @safe pure
+    private static Word maskValue(T)(immutable T value) @safe pure
     {
         return (value << leastSignificantBitIndex) & bitMask;
     }
@@ -474,7 +474,7 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
         /***********************************************************************
             Set this BitField's value
         */
-        @inline static void value(ValueType value_) @property @safe
+        @inline static void value(immutable ValueType value_) @property @safe
         {             
             // If only a single bit, use bit banding
             static if (numberOfBits == 1 && isBitBandable)
@@ -597,7 +597,7 @@ abstract class Peripheral(Address peripheralAddress)
           Sets all bits in the register as a single value.  It's only exposed
           privately to prevent circumventing the access mutability.
         */
-        private static void value(Word value) @property @safe
+        private static void value(immutable Word value) @property @safe
         {
             volatileStore(cast(Word*)address, value);
         }
