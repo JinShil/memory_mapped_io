@@ -93,7 +93,7 @@ private immutable Address SRAMBitBandRegionStart       = 0x2200_0000u;
    Template wrapping volatileLoad intrinsic casting to basic type based on
    size.
 */
-private T volatileLoad(T)(T* a)
+private T volatileLoad(T)(T* a) @trusted
 {
     static import core.bitop;
     static if (T.sizeof == 1)
@@ -114,7 +114,7 @@ private T volatileLoad(T)(T* a)
    Template wrapping volatileStore intrinsic casting to basic type based on
    size.
 */
-private void volatileStore(T)(T* a, in T v)
+private void volatileStore(T)(T* a, in T v) @trusted
 {
     static import core.bitop;
     static if (T.sizeof == 1)
