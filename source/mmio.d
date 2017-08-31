@@ -334,7 +334,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
     /***********************************************************************
       Whether or not this bitfield is aligned to an even multiple of bytes
     */
-    private static Alignment alignment() @property @safe pure nothrow
+    private static Alignment alignment() @property @safe pure nothrow immutable
     {
         // If half-word aligned
         static if (((mostSignificantBitIndex + 1) % 16) == 0 && (leastSignificantBitIndex % 16) == 0)
@@ -373,7 +373,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
     // of this register is aliased to a bit-banded region
     static if(isBitBandable)
     {
-        private static Address bitBandAddress() @property @safe pure nothrow
+        private static Address bitBandAddress() @property @safe pure nothrow immutable
         {
             static if (address >= PeripheralRegionStart && address <= PeripheralRegionEnd)
             {
@@ -411,7 +411,7 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
         /***********************************************************************
             Get this BitField's value
         */
-        @inline static ValueType value() @property @trusted nothrow
+        @inline static ValueType value() @property @trusted nothrow immutable
         {
             // If only a single bit, use bit banding
             static if (numberOfBits == 1 && isBitBandable)
@@ -596,7 +596,7 @@ abstract class Peripheral(Address peripheralAddress)
           Gets all bits in the register as a single value.  It's only exposed
           privately to prevent circumventing the access mutability.
         */
-        private static auto value() @property @trusted nothrow
+        private static auto value() @property @trusted nothrow immutable
         {
             return volatileLoad(cast(Word*)address);
         }
