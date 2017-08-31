@@ -318,7 +318,7 @@ mixin template BitFieldDimensions(BitIndex bitIndex0, BitIndex bitIndex1)
       Takes a value and moves its bits to align with this bitfields position
       in the register.
     */
-    private static Word maskValue(T)(immutable T value) @safe pure
+    private static Word maskValue(T)(T value) @safe pure
     {
         return (value << leastSignificantBitIndex) & bitMask;
     }
@@ -403,7 +403,7 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
         /***********************************************************************
             Get this BitField's value
         */
-        @inline static ValueType value() @property @safe
+        @inline static ValueType value() @property @trusted
         {
             // If only a single bit, use bit banding
             static if (numberOfBits == 1 && isBitBandable)
@@ -474,7 +474,7 @@ mixin template BitFieldMutation(Mutability mutability, ValueType_)
         /***********************************************************************
             Set this BitField's value
         */
-        @inline static void value(immutable ValueType value_) @property @safe
+        @inline static void value(immutable ValueType value_) @property @trusted
         {             
             // If only a single bit, use bit banding
             static if (numberOfBits == 1 && isBitBandable)
